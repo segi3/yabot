@@ -1,0 +1,26 @@
+{
+  "name": "node-discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://segi3:06674cdbeb172f19d2141fcb6424bb40ed0da046@github.com/segi3/yabot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/segi3/node-discord-bot/issues"
+  },
+  "homepage": "https://github.com/segi3/node-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "mongoose": "^5.11.15",
+    "nodemon": "^2.0.7",
+    "redis": "^3.0.2"
+  }
+}
