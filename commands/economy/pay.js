@@ -18,7 +18,7 @@ module.exports = {
         }
 
         const coinsToGive = arguments [1]
-        if (isNaN(coinsToGive)) {
+        if (isNaN(coinsToGive) || coinsToGive < 0) {
             // message.reply(`Please provide a valid number of coins to give.`)
             message.client.channels.cache.get(bot_channels[guildId]).send(`Please provide a valid number of coins to give.`)
             return
