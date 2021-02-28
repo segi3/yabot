@@ -13,21 +13,21 @@ module.exports = {
         const target = message.mentions.users.first()
         if (!target) {
             // message.reply(`Please specify someone to give coin to`)
-            message.client.channels.cache.get(bot_channels[guildId]).send(`Please specify someone to give coin to`)
+            message.client.channels.cache.get(bot_channels[guild.id]).send(`Please specify someone to give coin to`)
             return
         }
 
         const coinsToGive = arguments [1]
         if (isNaN(coinsToGive) || coinsToGive < 0) {
             // message.reply(`Please provide a valid number of coins to give.`)
-            message.client.channels.cache.get(bot_channels[guildId]).send(`Please provide a valid number of coins to give.`)
+            message.client.channels.cache.get(bot_channels[guild.id]).send(`Please provide a valid number of coins to give.`)
             return
         }
 
         const coinsOwned = await economy.getCoins(guild.id, member.id)
         if (coinsOwned < coinsToGive) {
             // message.reply(`You do not have ${coinsToGive} coins!.`)
-            message.client.channels.cache.get(bot_channels[guildId]).send(`You do not have ${coinsToGive} coins!.`)
+            message.client.channels.cache.get(bot_channels[guild.id]).send(`You do not have ${coinsToGive} coins!.`)
             return
         }
 
