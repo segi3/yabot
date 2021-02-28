@@ -1,0 +1,23 @@
+// discord
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+const config = require('./config.json');
+
+// load commands
+const loadCommands = require('./commands/load-commands')
+
+// levels
+const levels = require('./levels')
+
+client.on('ready', () => {
+    console.log('bot is ready')
+
+    // load commands
+    loadCommands(client)
+
+    // levels
+    levels(client)
+})
+
+client.login(config.token)
