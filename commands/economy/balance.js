@@ -14,7 +14,7 @@ module.exports = {
         const guildId = message.guild.id
         const userId = target.id
         
-        console.log(bot_channels[guildId])
+        // console.log(bot_channels[guildId])
 
         const coins = await economy.getCoins(guildId, userId)
 

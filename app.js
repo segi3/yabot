@@ -11,13 +11,14 @@ const loadCommands = require('./commands/load-commands')
 const levels = require('./levels')
 
 client.on('ready', () => {
-    console.log('bot is ready')
 
     // load commands
     loadCommands(client)
 
     // levels
     levels(client)
+
+    console.log('bot is ready')
 })
 
 client.login(config.token)
