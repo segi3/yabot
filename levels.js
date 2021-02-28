@@ -9,7 +9,13 @@ module.exports = (client) => {
 
         const { guild, member } = message
 
-        addXP(guild.id, member.id, 23, message)
+        const min = 15
+        const max = 23
+        let xp = Math.floor(
+            Math.random() * (max - min + 1) + min
+        )
+        
+        addXP(guild.id, member.id, xp, message)
     })
 }
 const getNeededXP = (level) => level * 100
@@ -50,7 +56,9 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
                     xp
                 })
 
-                await economy.addCoins(guildId, userId, 25)
+                let coinFromLevelUp = level * 20
+
+                await economy.addCoins(guildId, userId, coinFromLevelUp)
             }
 
         } finally {
