@@ -15,7 +15,7 @@ module.exports = (client) => {
 const getNeededXP = (level) => level * 100
 
 const addXP = async (guildId, userId, xpToAdd, message) => {
-    await mongo().then(async mongoose=> {
+    await mongo().then(async (mongoose)=> {
         try {
             const result = await profileSchema.findOneAndUpdate({
                 guildId,

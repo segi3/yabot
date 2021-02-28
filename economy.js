@@ -43,7 +43,7 @@ module.exports.getCoins = async (guildId, userId) => {
         return cachedValue
     }
 
-    return await mongo().then(async mongoose => {
+    return await mongo().then(async (mongoose) => {
         try {
             // console.log('running findOne()')
 
