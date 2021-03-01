@@ -2,7 +2,7 @@ const economy = require('../../economy')
 const { bot_channels } = require('../../config.json')
 
 module.exports = {
-    commands: ['pay',],
+    commands: ['pay'],
     minArgs: 2,
     maxArgs: 2,
     expectedArgs: "<Target user's @> <Amount of coins>",
@@ -17,7 +17,7 @@ module.exports = {
             return
         }
 
-        const coinsToGive = arguments [1]
+        const coinsToGive = arguments[1]
         if (isNaN(coinsToGive) || coinsToGive < 0) {
             // message.reply(`Please provide a valid number of coins to give.`)
             message.client.channels.cache.get(bot_channels[guild.id]).send(`Please provide a valid number of coins to give.`)
