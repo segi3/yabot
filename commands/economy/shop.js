@@ -19,8 +19,12 @@ module.exports = {
 
         let reply = 'Shop items:\n\n'
 
-        for (item in shop_items) {
-            reply += `**${item}** - ${shop_items[item]} coins\n`
+        const guildShop = shop_items[guildId]
+
+        // console.log(guildShop)
+
+        for (item in guildShop) {
+            reply += `**${item}** - ${guildShop[item]} coins\n`
         }
 
         message.client.channels.cache.get(bot_channels[guildId]).send(reply)
