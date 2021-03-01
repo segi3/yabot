@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 const mongo = require('./mongo')
 const profileSchema = require('./schemas/profile-schema')
 const economy = require('./economy')
@@ -46,7 +47,10 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
                 xp -= needed
 
                 // message.reply(`You are now level ${level} with ${xp} xp!`)
-                message.client.channels.cache.get(bot_channels[guildId]).send(`<@${userId}> is now level ${level}!`)
+                const embed = new Discord.MessageEmbed()
+                    .setColor('#f9b243')
+                    .setDescription(`<@${userId}> is now level ${level}!`)
+                message.client.channels.cache.get(bot_channels[guildId]).send(embed)
 
                 await profileSchema.updateOne({
                     guildId,
