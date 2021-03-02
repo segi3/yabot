@@ -10,7 +10,8 @@ module.exports = {
     // test server
     "469143644524380164": {
         "test 1": "10",
-        "test 2": "10"
+        "test 2": "10",
+        "hidup untuk gacha": "200"
     },
     // phew
     "361494244919083018": {
