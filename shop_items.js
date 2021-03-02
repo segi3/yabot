@@ -3,14 +3,15 @@ module.exports = {
     "762982733747060736": {
         "beta-tester": "40",
         "gay": "2",
-        "bossman": "500",
-        "afk": "50",
-        "hidup untuk gacha": "200"
+        "bossman": "5000",
+        "afk": "1000",
+        "hidup untuk gacha": "500"
     },
     // test server
     "469143644524380164": {
         "test 1": "10",
-        "test 2": "10"
+        "test 2": "10",
+        "hidup untuk gacha": "200"
     },
     // phew
     "361494244919083018": {
