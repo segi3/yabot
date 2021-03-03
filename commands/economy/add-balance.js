@@ -29,9 +29,16 @@ module.exports = {
         const guildId = message.guild.id
         const userId = mention.id
 
-        const newCoins = await economy.addCoins(guildId, userId, coins)
+        try {
+            const newCoins = await economy.addCoins(guildId, userId, coins)
+            message.client.channels.cache.get(bot_channels[guildId]).send(`you have given <@${userId}> ${coins} coins. They now have ${newCoins} coins.`)
+        }catch(err) {
+            console.log(err)
+            message.reply('something bad happened :( please try again')
+        }
+        
 
         // message.reply(`you have given <@${userId}> ${coins} coins. They now have ${newCoins} coins.`)
-        message.client.channels.cache.get(bot_channels[guildId]).send(`you have given <@${userId}> ${coins} coins. They now have ${newCoins} coins.`)
+        // message.client.channels.cache.get(bot_channels[guildId]).send(`you have given <@${userId}> ${coins} coins. They now have ${newCoins} coins.`)
     }
 }
