@@ -33,7 +33,7 @@ var responses = [
 ]
 
 module.exports = {
-    commands: ['kerang'],
+    commands: ['kerang', 'k'],
     minArgs: 1,
     maxArgs: null,
     expectedArgs: "<you question>",
