@@ -7,7 +7,10 @@ const coinsCache = {}
 module.exports = (client) => {}
 
 module.exports.addCoins = async (guildId, userId, coins) => {
-    return await mongo().then(async (mongoose) => {
+
+    let userCoins = 0
+
+    await mongo().then(async (mongoose) => {
         try {
             // console.log('running findOneAndUpdate()')
 
@@ -28,11 +31,17 @@ module.exports.addCoins = async (guildId, userId, coins) => {
 
             coinsCache[`${guildId}-${userId}`] = result.coins
 
-            return result.coins
+            userCoins =  result.coins
+
+        } catch (err) {
+            console.log('addcoin: ',err)
+            throw new Error('Failed to fetch data')
         } finally {
             mongoose.connection.close()
         }
     })
+
+    return userCoins
 }
 
 module.exports.getCoins = async (guildId, userId) => {
@@ -43,18 +52,15 @@ module.exports.getCoins = async (guildId, userId) => {
         return cachedValue
     }
 
-    return await mongo().then(async (mongoose) => {
+    let coins = 0
+    await mongo().then(async (mongoose) => {
         try {
-            // console.log('running findOne()')
-
             const result = await profileSchema.findOne({
                 guildId,
                 userId
             })
 
             // console.log(result)
-
-            let coins = 0
 
             if (result) {
                 coins = result.coins
@@ -71,8 +77,13 @@ module.exports.getCoins = async (guildId, userId) => {
 
             return coins
 
+        } catch (err) {
+            console.log('getcoin: ',err)
+            throw new Error('Failed to fetch data')
         } finally {
             mongoose.connection.close()
         }
     })
+
+    return coins
 }

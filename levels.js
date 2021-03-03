@@ -62,8 +62,12 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
 
                 let coinFromLevelUp = level * 20
 
-                await economy.addCoins(guildId, userId, coinFromLevelUp)
+                await economy.addCoins('level: ', guildId, userId, coinFromLevelUp)
             }
+
+        } catch (err) {
+            console.log(err)
+            await economy.addCoins('level: ', guildId, userId, coinFromLevelUp)
 
         } finally {
             mongoose.connection.close()
