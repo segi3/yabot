@@ -1,7 +1,6 @@
 module.exports = {
     // kulen
     "762982733747060736": {
-        "beta-tester": "40",
         "gay": "2",
         "bossman": "5000",
         "afk": "1000",
