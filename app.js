@@ -23,7 +23,7 @@ client.on('ready', () => {
     levels(client)
 
     // activity
-    bot.user.setActivity('TWICE', { type: 'LISTENING' })
+    client.user.setActivity('TWICE', { type: 'LISTENING' })
 
     console.log('bot is ready')
 })
