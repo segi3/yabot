@@ -10,6 +10,10 @@ const loadCommands = require('./commands/load-commands')
 // levels
 const levels = require('./levels')
 
+// pass event emitter limit
+require('events').EventEmitter.prototype._maxListeners = 70;
+require('events').defaultMaxListeners = 70;
+
 client.on('ready', () => {
 
     // load commands
