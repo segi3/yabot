@@ -1,10 +1,14 @@
 // ! mongoose
 const mongoose = require('mongoose')
 
-const dbURI = 'mongodb+srv://segi3:4re6vpivYC4koADm@cluster0.iuqmx.mongodb.net/yabot?retryWrites=true&w=majority'
+const { mongoPath } = require('@root/config.json')
 
 module.exports = async() => {
-    await mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    await mongoose.connect(mongoPath, {
+        keepAlive: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
         // .then(() => console.log('connected to db'))
         .catch((err) => console.log(err));
     return mongoose
