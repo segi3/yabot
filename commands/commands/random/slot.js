@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
-const economy = require('../../economy')
-const { bot_channels } = require('../../config.json')
+const economy = require('@features/economy')
+const { bot_channels } = require('@root/config.json')
 
 const symbols = [4, 4, 4, 4, 3, 3, 3, 2, 2, 1]
 const slotsymbols = ['Apel', 'Lemon', 'Duren', 'Kucing']

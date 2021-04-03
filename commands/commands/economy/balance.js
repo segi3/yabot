@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
-const economy = require('../../economy')
-const { bot_channels } = require('../../config.json')
+const economy = require('@features/economy')
+const { bot_channels } = require('@root/config.json')
 
 module.exports = {
     commands: ['balance', 'bal'],

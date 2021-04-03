@@ -1,5 +1,5 @@
-const { bot_channels } = require('../../config.json')
-const sem6_items = require('../../role_sem6')
+const { bot_channels } = require('@root/config.json')
+const sem6_items = require('@util/role_sem6')
 
 module.exports = {
     commands: ['sem6'],

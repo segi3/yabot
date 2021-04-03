@@ -1,6 +1,6 @@
-const economy = require('../../economy')
-const { bot_channels } = require('../../config.json')
-const shop_items = require('../../shop_items')
+const economy = require('@features/economy')
+const { bot_channels } = require('@root/config.json')
+const shop_items = require('@util/shop_items')
 
 module.exports = {
     commands: ['shop'],

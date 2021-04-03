@@ -1,6 +1,6 @@
-const mongo = require('./mongo')
+const mongo = require('@util/mongo')
 
-const profileSchema = require('./schemas/profile-schema')
+const profileSchema = require('@schemas/profile-schema')
 
 module.exports.getProfile = async (guildId, userId) => {
     return await mongo().then(async (mongoose) => {

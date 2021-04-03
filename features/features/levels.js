@@ -1,8 +1,8 @@
 const Discord = require('discord.js')
-const mongo = require('./mongo')
-const profileSchema = require('./schemas/profile-schema')
-const economy = require('./economy')
-const { bot_channels } = require('./config.json')
+const mongo = require('@util/mongo')
+const profileSchema = require('@schemas/profile-schema')
+const economy = require('@features/economy')
+const { bot_channels } = require('@root/config.json')
 
 module.exports = (client) => {
     client.on('message', message => {
