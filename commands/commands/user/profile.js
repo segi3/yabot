@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
-const user = require('../../user')
-const { bot_channels } = require('../../config.json')
+const user = require('@util/user')
+const { bot_channels } = require('@root/config.json')
 
 module.exports = {
     commands: ['profile'],
