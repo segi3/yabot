@@ -8,6 +8,8 @@ const reqString = {
 const profileSchema = mongoose.Schema({
     guildId: reqString,
     userId: reqString,
+    username: reqString,
+    discriminator: reqString,
     coins: {
         type: Number,
         default: 0

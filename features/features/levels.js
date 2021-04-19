@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const mongo = require('@util/mongo')
+// const mongo = require('@util/mongo')
 const profileSchema = require('@schemas/profile-schema')
 const economy = require('@features/economy')
 const { bot_channels } = require('@root/config.json')
@@ -58,9 +58,9 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
             xp
         })
 
-        let coinFromLevelUp = level * 20
+        let coinFromLevelUp = level * 50
 
-        await economy.addCoins('level: ', guildId, userId, coinFromLevelUp)
+        await economy.addCoins(guildId, userId, coinFromLevelUp)
     }
 }
 
