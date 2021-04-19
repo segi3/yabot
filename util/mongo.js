@@ -11,5 +11,10 @@ module.exports = async() => {
     })
         // .then(() => console.log('connected to db'))
         .catch((err) => console.log(err));
+
+    mongoose.set('useFindAndModify', false);
+
+    console.log('Connection to mongoDB established.')
+
     return mongoose
 }
