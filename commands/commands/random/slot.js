@@ -10,12 +10,12 @@ const rewards = [0, 1000, 500, 300, 250]
 const isJackPot = (number) => {
     const winner = symbols[number % 10]
     
-    console.log('winner symbol: ', winner)
+    // console.log('winner symbol: ', winner)
 
     for (let i = 0; i < 2; i++) {
         number = Math.floor(number/10)
 
-        console.log('current symbol: ', symbols[number % 10])
+        // console.log('current symbol: ', symbols[number % 10])
 
         if (symbols[number % 10] !== winner) return 0
     }
@@ -56,7 +56,7 @@ module.exports = {
             slotnum[2].toString(10)
         ]
         let slotres = +`${slotstring[0] + slotstring[1] + slotstring[2]}`
-        console.log(slotres, typeof(slotres), isJackPot(slotres))
+        // console.log(slotres, typeof(slotres), isJackPot(slotres))
 
         let title = `\`| ${slotsymbols[symbols[slotnum[0]]-1]} | ${slotsymbols[symbols[slotnum[1]]-1]} | ${slotsymbols[symbols[slotnum[2]]-1]} |\``
         let des = ''
