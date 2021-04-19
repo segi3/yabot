@@ -1,18 +1,27 @@
-const mongo = require('@util/mongo')
+// const mongo = require('@util/mongo')
 
 const profileSchema = require('@schemas/profile-schema')
+const profile = require('../commands/commands/user/profile')
 
-module.exports.getProfile = async (guildId, userId) => {
-    return await mongo().then(async (mongoose) => {
-        try {
-            const result = await profileSchema.findOne({
-                guildId,
-                userId
-            })
+module.exports.getProfile = async (username, discriminator, guildId, userId) => {
 
-            return result
-        } finally {
-            mongoose.connection.close()
-        }
+    // const result = await profileSchema.findOne({
+    //     guildId,
+    //     userId
+    // })
+
+    // return result
+
+    const result = await profileSchema.findOneAndUpdate({
+        guildId,
+        userId
+    }, {
+        username: username,
+        discriminator: discriminator
+    }, {
+        upsert: true,
+        new: true
     })
+
+    return result
 }

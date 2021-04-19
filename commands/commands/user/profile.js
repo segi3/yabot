@@ -10,8 +10,13 @@ module.exports = {
         const guildId = guild.id
         const memberId = member.id
 
+        const username = member.user.username
+        const discriminator = member.user.discriminator
+
+        // console.log(member.user)
+
         try {
-            const result = await user.getProfile(guildId, memberId)
+            const result = await user.getProfile(username, discriminator, guildId, memberId)
 
             const embed = new Discord.MessageEmbed()
                 .setTitle(`${member.displayName}`)
