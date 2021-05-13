@@ -10,6 +10,10 @@ module.exports = {
     permissions: 'ADMINISTRATOR',
     description: 'gives a user coins.',
     callback: async (message, arguments) => {
+
+        const guildId = message.guild.id
+        const userId = mention.id
+        
         const mention = message.mentions.users.first()
 
         if (!mention) {
@@ -26,8 +30,7 @@ module.exports = {
             return
         }
 
-        const guildId = message.guild.id
-        const userId = mention.id
+        
 
         try {
             const newCoins = await economy.addCoins(guildId, userId, coins)

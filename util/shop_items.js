@@ -2,13 +2,13 @@ module.exports = {
     // kulen
     "762982733747060736": {
         "gay": "2",
-        "bossman": "5000",
+        "bossman": "8000",
         "afk": "1000",
         "hidup untuk gacha": "500"
     },
     // test server
     "469143644524380164": {
-        "test 1": "10",
+        "test 1": "1000",
         "test 2": "10",
         "hidup untuk gacha": "200"
     },
