@@ -19,7 +19,8 @@ module.exports = {
             const result = await user.getProfile(username, discriminator, guildId, memberId)
 
             const embed = new Discord.MessageEmbed()
-                .setTitle(`${member.displayName}`)
+                // .setTitle(`${member.displayName}`)
+                .setAuthor(`${member.displayName}`)
                 .setThumbnail(message.author.displayAvatarURL())
                 .setColor(member.displayHexColor)
                 .addFields({
@@ -36,6 +37,11 @@ module.exports = {
                     name: 'Coins',
                     value: `${result.coins}`,
                     inline: true
+                })
+                .addFields({
+                    name: 'Count Contributions',
+                    value: `${result.count_contributions}`,
+                    inline: false
                 })
             
             message.reply(embed)
