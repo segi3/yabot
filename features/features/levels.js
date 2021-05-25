@@ -2,13 +2,17 @@ const Discord = require('discord.js')
 // const mongo = require('@util/mongo')
 const profileSchema = require('@schemas/profile-schema')
 const economy = require('@features/economy')
-const { bot_channels } = require('@root/config.json')
+const { bot_channels, count_channels } = require('@root/config.json')
 
 module.exports = (client) => {
     client.on('message', message => {
         if (message.author.bot) return
 
         const { guild, member } = message
+
+        if (message.content == '!profile' ||
+            message.content == '!slot') return // engga dapet xp
+        if (message.channel.id == count_channels[guild.id]) return // xp dari count channel engga di itung
 
         const min = 15
         const max = 23
