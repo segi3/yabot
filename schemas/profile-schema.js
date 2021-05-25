@@ -21,6 +21,10 @@ const profileSchema = mongoose.Schema({
     level: {
         type: Number,
         default: 1
+    },
+    count_contributions: {
+        type: Number,
+        default: 0
     }
 })
 
