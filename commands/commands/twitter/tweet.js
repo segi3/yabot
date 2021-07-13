@@ -12,19 +12,19 @@ module.exports = {
         const { guild, member } = message
 
         // todo: kasih harga tweet
-        // const coinsOwned = await economy.getCoins(guild.id, member.id)
-        // const itemCost = guildShop[text]
-        // if (coinsOwned < itemCost) {
-        //     // message.reply(`You do not have ${coinsToGive} coins!.`)
-        //     message.client.channels.cache.get(bot_channels[guild.id]).send(`You do not have enough coins!.`)
-        //     return
-        // }
+        const coinsOwned = await economy.getCoins(guild.id, member.id)
+        const itemCost = 1000
+        if (coinsOwned < itemCost) {
+            // message.reply(`You do not have ${coinsToGive} coins!.`)
+            message.client.channels.cache.get(bot_channels[guild.id]).send(`You do not have 1000 coins!.`)
+            return
+        }
 
-        // const remainingCoins = await economy.addCoins(
-        //     guild.id,
-        //     member.id,
-        //     itemCost * -1
-        // )
+        const remainingCoins = await economy.addCoins(
+            guild.id,
+            member.id,
+            itemCost * -1
+        )
 
         if (text.length > 140) {
             message.client.channels.cache.get(bot_channels[guild.id]).send(`<@${member.id}> bates nya 140 character.`)
