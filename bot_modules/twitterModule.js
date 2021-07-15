@@ -48,7 +48,57 @@ const tweetLogInsert = async (log) => {
     }
 }
 
+// tweet from yabot
+
+// ? https://developer.twitter.com/en/docs/authentication/oauth-1-0a/obtaining-user-access-tokens
+const tweetAccessToken = require('@schemas/twitter-access-tokens-schema')
+const tweetFromYabot = async (user) => {
+
+    const user_token = await tweetAccessToken.findOne({ 
+        username: user.username,
+        discriminator: user.discriminator
+    }).exec()
+
+    // console.log(user_token.accessToken, user_token.accessTokenSecret)
+    // console.log(user_token)
+    if (user_token == null) {
+        return {
+            twtUsername: null,
+            twtId: null,
+            err: 'err:not_found'
+        }
+    }
+
+    const twitterClientUser = new TwitterClient({
+        apiKey: config.TWITTER_DARI_YABOT_API_KEY,
+        apiSecret: config.TWITTER_DARI_YABOT_API_SECRET,
+        accessToken: user_token.accessToken,
+        accessTokenSecret: user_token.accessTokenSecret
+    })
+
+    try {
+        const respond = await twitterClientUser.tweets.statusesUpdate({
+            status: user.status
+        })
+
+        return {
+            twtUsername: respond.user.screen_name,
+            twtId: respond.id_str,
+            err: null
+        }
+
+    }catch (err) {
+        console.log(err)
+        return {
+            twtUsername: null,
+            twtId: null,
+            err: 'err:tweet'
+        }
+    }
+}
+
 module.exports = {
     tweetStatusUpdate,
-    tweetLogInsert
+    tweetLogInsert,
+    tweetFromYabot
 }

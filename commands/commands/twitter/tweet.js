@@ -34,7 +34,8 @@ module.exports = {
         const twtId = await twtModule.tweetStatusUpdate(text)
 
         if (twtId == 'err:tweet') {
-            message.client.channels.cache.get(bot_channels[guild.id]).send(`there was an error sending tweet.`)
+            // message.client.channels.cache.get(bot_channels[guild.id]).send(`there was an error sending tweet.`)
+            message.reply(`there was an error sending tweet.`)
             return
 
         } else {
@@ -52,7 +53,8 @@ module.exports = {
 
             await twtModule.tweetLogInsert(log_data)
 
-            message.client.channels.cache.get(bot_channels[guild.id]).send(`You successfully tweeted. ${statusLink}`)
+            // message.client.channels.cache.get(bot_channels[guild.id]).send(`You successfully tweeted. ${statusLink}`)
+            message.reply(`successfully bought (1k coin) and tweeted. ${statusLink}`)
         }
 
     }
