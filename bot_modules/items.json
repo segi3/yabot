@@ -1,0 +1,58 @@
+{
+    "fruits": [
+        {
+            "name": "pisang",
+            "grade": "S",
+            "value": 10000,
+            "chance": 0.008334
+        },
+        {
+            "name": "buah naga",
+            "grade": "A",
+            "value": 2500,
+            "chance": 0.02778
+        },
+        {
+            "name": "lemon",
+            "grade": "A",
+            "value": 1000,
+            "chance": 0.02778
+        },
+        {
+            "name": "semangka",
+            "grade": "B",
+            "value": 500,
+            "chance": 0.047223
+        },
+        {
+            "name": "mangga",
+            "grade": "C",
+            "value": 250,
+            "chance": 0.1667
+        },
+        {
+            "name": "apel",
+            "grade": "C",
+            "value": 250,
+            "chance": 0.1667
+        },
+        {
+            "name": "anggur",
+            "grade": "C",
+            "value": 250,
+            "chance": 0.1667
+        },
+        {
+            "name": "melon",
+            "grade": "D",
+            "value": 100,
+            "chance": 0.19445
+        },
+        {
+            "name": "jeruk",
+            "grade": "D",
+            "value": 100,
+            "chance": 0.194333
+        }
+    ]
+}
