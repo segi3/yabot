@@ -26,6 +26,8 @@ const addItems = async (guildId, userId, newItems) => {
         guildId,
         userId
     }, {
+        guildId,
+        userId,
         items: currItems
     }, {
         upsert: true,
