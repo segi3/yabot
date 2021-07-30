@@ -2,10 +2,10 @@ const profileSchema = require('@schemas/profile-schema')
 
 const addItems = async (guildId, userId, newItems) => {
 
-    const result = await profileSchema.findOneAndUpdate({
+    const result = await profileSchema.findOne({
         guildId,
         userId
-    })
+    }).exec()
 
     var currItems = result.items
 

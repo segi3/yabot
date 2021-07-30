@@ -41,17 +41,21 @@ module.exports = {
     callback: async (message, arguments, text) => {
         const { guild, member } = message
 
-        const coinsOwned = await economy.getCoins(guild.id, member.id)
-        if (coinsOwned < cost) {
-            message.reply('you do not have enough coins')
-            return
-        } else {
-            const remainingCoins = await economy.addCoins(
-                guild.id,
-                member.id,
-                cost * -1
-            )
-        }
+        if (member.id != '365099627327913986') return
+
+        console.log(guild)
+
+        // const coinsOwned = await economy.getCoins(guild.id, member.id)
+        // if (coinsOwned < cost) {
+        //     message.reply('you do not have enough coins')
+        //     return
+        // } else {
+        //     const remainingCoins = await economy.addCoins(
+        //         guild.id,
+        //         member.id,
+        //         cost * -1
+        //     )
+        // }
 
         var embed = new Discord.MessageEmbed()
             .setColor('#f9b243')
