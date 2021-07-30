@@ -25,7 +25,8 @@ const profileSchema = mongoose.Schema({
     count_contributions: {
         type: Number,
         default: 0
-    }
+    },
+    items: [{}]
 })
 
 module.exports = mongoose.model('profiles', profileSchema)
