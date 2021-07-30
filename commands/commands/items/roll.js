@@ -30,18 +30,34 @@ fruits.forEach(fruit => {
     if (grades[fruit.name] == null) grades[fruit.name] = fruit.grade
 })
 
+const cost = 2000
+
 module.exports = {
     commands: ['roll'],
     minArgs: null,
     maxArgs: 2,
-    expectedArgs: "<edit here>",
-    description: "edit .",
+    expectedArgs: "<not yet specified as of now>",
+    description: "roll fruits!",
     callback: async (message, arguments, text) => {
         const { guild, member } = message
 
+        const coinsOwned = await economy.getCoins(guild.id, member.id)
+        if (coinsOwned < cost) {
+            message.reply('you do not have enough coins')
+            return
+        } else {
+            const remainingCoins = await economy.addCoins(
+                guild.id,
+                member.id,
+                cost * -1
+            )
+        }
+
         var embed = new Discord.MessageEmbed()
             .setColor('#f9b243')
-            .setDescription(`rolling fruits~~`)
+            .setDescription(`rolling fruits~ deducting coins~`)
+
+        var newItems = []
 
         var replyMessage = message.reply(embed)
         .then(async (msg) => {
@@ -67,34 +83,39 @@ module.exports = {
 
             // proses arr to string
             var finalmsg = ''
+            var totVal = 0
             for (key in gachaRes) {
                 finalmsg += `[**${grades[key]}**] **${key}** — ${gachaRes[key]}\n`
+
+                newItems.push({
+                    name: key,
+                    count: gachaRes[key]
+                })
+                totVal += (values[key] * gachaRes[key])
             }
 
             embed = new Discord.MessageEmbed()
                 .setColor('#f9b243')
-                .setDescription('roll results')
+                .setDescription(`roll value ${totVal} coins`)
                 .addFields({
                     name: 'Item — Count',
                     value: finalmsg
                 })
             msg.edit(embed)
+            console.log(newItems)
+
+            itemManager.addItems(guild.id, member.id, newItems)
         })
-        
-        
 
-        return
+        // const itm = [{
+        //     name: 'durian',
+        //     count: 2
+        // }, {
+        //     name: 'apel',
+        //     count: 4
+        // }]
 
-        const itm = [{
-            name: 'durian',
-            count: 2
-        }, {
-            name: 'apel',
-            count: 4
-        }]
-
-        itemManager.addItems(guild.id, member.id, itm)
+        // itemManager.addItems(guild.id, member.id, newItems)
         
-        message.reply(`tested.`)
     }
 }
