@@ -16,7 +16,7 @@ module.exports = {
     commands: ['inventory'],
     minArgs: null,
     maxArgs: 0,
-    description: 'Replies with bacot van',
+    description: 'Show your inventory.',
     callback: async (message, arguments, text) => {
 
         const { guild, member } = message
