@@ -12,7 +12,7 @@ module.exports = {
         const guildId = guild.id
         const memberId = member.id
 
-        const tag = `<@${memberId}>`
+        const tag = `<@${memberId}>` // salah ini, ganti ke target
 
         // temp, lupa cara pake base command
         if (!member.hasPermission('KICK_MEMBERS')) {

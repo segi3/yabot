@@ -1,4 +1,4 @@
-const mongo = require('@util/mongo')
+// const mongo = require('@util/mongo')
 
 const profileSchema = require('@schemas/profile-schema')
 
