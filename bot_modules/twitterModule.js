@@ -69,32 +69,40 @@ const tweetFromYabot = async (user) => {
         }
     }
 
-    const twitterClientUser = new TwitterClient({
-        apiKey: config.TWITTER_DARI_YABOT_API_KEY,
-        apiSecret: config.TWITTER_DARI_YABOT_API_SECRET,
-        accessToken: user_token.accessToken,
-        accessTokenSecret: user_token.accessTokenSecret
-    })
-
     try {
-        const respond = await twitterClientUser.tweets.statusesUpdate({
-            status: user.status
+        const twitterClientUser = new TwitterClient({
+            apiKey: config.TWITTER_DARI_YABOT_API_KEY,
+            apiSecret: config.TWITTER_DARI_YABOT_API_SECRET,
+            accessToken: user_token.accessToken,
+            accessTokenSecret: user_token.accessTokenSecret
         })
 
-        return {
-            twtUsername: respond.user.screen_name,
-            twtId: respond.id_str,
-            err: null
+        try {
+            const respond = await twitterClientUser.tweets.statusesUpdate({
+                status: user.status
+            })
+    
+            return {
+                twtUsername: respond.user.screen_name,
+                twtId: respond.id_str,
+                err: null
+            }
+    
+        }catch (err) {
+            console.log(err)
+            return {
+                twtUsername: null,
+                twtId: null,
+                err: 'err:tweet'
+            }
         }
 
-    }catch (err) {
+    } catch (err) {
+
         console.log(err)
-        return {
-            twtUsername: null,
-            twtId: null,
-            err: 'err:tweet'
-        }
+
     }
+    
 }
 
 module.exports = {
