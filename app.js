@@ -28,7 +28,7 @@ client.on('ready', async () => {
     // levels(client)
 
     // activity
-    client.user.setActivity('TWICE', { type: 'LISTENING' })
+    client.user.setActivity('AWS', { type: 'PLAYING' })
 
     console.log('bot is ready')
 })

@@ -1,0 +1,21 @@
+{
+    "token": "",
+    "prefix": "!",
+    "redis_email": "",
+    "redis_password": "",
+    "redisPath": "",
+    "mongoPath" : "",
+    "bot_channels": {
+        "{server id}": "{channel id}"
+    },
+    "count_channels": {
+        "{server id}": "{channel id}"
+    },
+    "TWITTER_API_KEY": "",
+    "TWITTER_API_SECRET": "",
+    "TWITTER_ACCESS_TOKEN": "",
+    "TWITTER_ACCESS_TOKEN_SECRET": "",
+
+    "TWITTER_DARI_YABOT_API_KEY": "",
+    "TWITTER_DARI_YABOT_API_SECRET": ""
+}
