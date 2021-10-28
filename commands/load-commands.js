@@ -6,6 +6,7 @@ module.exports = (client) => {
     const commandBase = require(`./${baseFile}`)
 
     const commands = []
+    const disabled_commands = ['count.js', 'tweet.js', 'tweetdariyabot.js']
 
     const readCommands = dir => {
         const files = fs.readdirSync(path.join(__dirname, dir))
@@ -13,7 +14,7 @@ module.exports = (client) => {
             const stat = fs.lstatSync(path.join(__dirname, dir, file))
             if (stat.isDirectory()) {
                 readCommands(path.join(dir, file))
-            } else if (file !== baseFile && file !== 'load-commands.js') {
+            } else if (file !== baseFile && file !== 'load-commands.js' && disabled_commands.indexOf(file) <= -1) {
                 const option = require(path.join(__dirname, dir, file))
                 commands.push(option)
                 // console.log(file, option)
